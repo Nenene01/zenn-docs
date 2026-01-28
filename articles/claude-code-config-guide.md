@@ -1,5 +1,5 @@
 ---
-title: "Claude Code設定ファイル完全ガイド - CLAUDE.md, Rules, Skills, Hooks, Subagentsの使い分け"
+title: "Claude Code設定完全ガイド - 5つの設定機能の使い分け"
 emoji: "⚙️"
 type: "tech"
 topics: ["claudecode", "ai", "初心者向け"]
