@@ -655,13 +655,43 @@ codex exec "プライバシーポリシーをMarkdown形式で生成..."
 | App Store準備（Codex + EAS） | 10分 |
 | **合計** | **55分** |
 
-### 次のステップ（今後の展開）
+### フェーズ5: 次回セッションへの準備（完了）
 
-1. **EAS Build実行** - `eas build --platform ios --profile production`
-2. **iOSウィジェット実装** - UX Designerが設計した3サイズウィジェット
-3. **実機テスト** - 通知機能の動作確認
-4. **App Store Connect設定** - アイコン、スクリーンショット、説明文
-5. **App Store申請** - `eas submit --platform ios`
+#### 完全実装ガイド作成
+
+次回セッションでスムーズに作業できるよう、2つの完全ガイドを作成しました：
+
+**1. APP_STORE_GUIDE.md（App Store公開完全ガイド）**
+- Apple Developer Program登録手順
+- EAS Build実行コマンド
+- App Store Connect設定（スクリーンショット、説明文、キーワード）
+- 審査対応のトラブルシューティング
+- チェックリスト
+
+**2. WIDGET_IMPLEMENTATION.md（iOSウィジェット実装ガイド）**
+- 3サイズウィジェット仕様（Small/Medium/Large）
+- @bittingz/expo-widgetsの実装手順
+- SwiftUIコード例
+- データ共有フロー
+- トラブルシューティング
+
+#### 次回セッションのタスク
+
+```bash
+# 1. EAS Build実行
+eas build --platform ios --profile production
+
+# 2. ウィジェット実装
+npm install @bittingz/expo-widgets
+# → SwiftUIウィジェット作成
+
+# 3. App Store申請
+eas submit --platform ios
+```
+
+#### 総準備時間
+
+**20分**（ガイド作成）
 
 ---
 
