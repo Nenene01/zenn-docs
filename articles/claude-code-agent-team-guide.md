@@ -602,12 +602,66 @@ Codexが生成したコードは：
 **課題3:** コンテキスト共有
 → 型定義を先に実装し、それを参照させることで整合性確保
 
+### フェーズ4: App Store公開準備（Codex）
+
+#### EAS Build設定
+
+**app.json更新:**
+- bundleIdentifier設定（`com.nenene01.sportsday`）
+- 通知権限の説明文追加
+- ビルド番号設定
+
+**eas.json作成:**
+```json
+{
+  "build": {
+    "production": {
+      "autoIncrement": true,
+      "ios": { "simulator": false }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "your-apple-id@example.com"
+      }
+    }
+  }
+}
+```
+
+#### プライバシーポリシー生成（Codex）
+
+```bash
+codex exec "プライバシーポリシーをMarkdown形式で生成..."
+```
+
+**生成されたポリシー:**
+- データ収集なし（ローカルストレージのみ）
+- 外部送信なし
+- GDPR・個人情報保護法準拠
+- App Store審査基準適合
+
+#### 所要時間
+
+**約10分**（EAS CLI設定 + Codexによるポリシー生成）
+
+### 総開発時間
+
+| フェーズ | 所要時間 |
+|---------|---------|
+| 要件定義（Agent Team 3人） | 30分 |
+| 実装（Codex） | 15分 |
+| App Store準備（Codex + EAS） | 10分 |
+| **合計** | **55分** |
+
 ### 次のステップ（今後の展開）
 
-1. **iOSウィジェット実装** - UX Designerが設計した3サイズウィジェット
-2. **EAS Build** - App Store公開準備
+1. **EAS Build実行** - `eas build --platform ios --profile production`
+2. **iOSウィジェット実装** - UX Designerが設計した3サイズウィジェット
 3. **実機テスト** - 通知機能の動作確認
-4. **App Store申請** - 1日開発の完全実証
+4. **App Store Connect設定** - アイコン、スクリーンショット、説明文
+5. **App Store申請** - `eas submit --platform ios`
 
 ---
 
