@@ -45,6 +45,21 @@ npm ERR! Package axios@1.14.1 was published less than 7 days ago
 npm ERR! min-release-age=7 を満たしていません
 ```
 
+## 他のパッケージマネージャでの設定
+
+この機能は**npm、pnpm、Yarn、Bun**すべてで利用可能です。
+
+| パッケージマネージャ | 設定名 | 設定例（7日間） |
+|------------------|--------|----------------|
+| **npm** | `min-release-age` | `min-release-age=7` |
+| **pnpm** | `minimumReleaseAge` | `minimumReleaseAge=10080` (分) |
+| **Yarn** | `npmMinimalAgeGate` | `npmMinimalAgeGate: 7d` |
+| **Bun** | `minimumReleaseAge` | `minimumReleaseAge=604800` (秒) |
+
+:::message
+単位が異なる点に注意してください。npmは日、pnpmは分、Bunは秒、Yarnは文字列形式です。
+:::
+
 ## lockファイルとCI/CDの活用
 
 クールダウン期間だけでは不十分です。**lockファイル**を活用しましょう。
@@ -91,6 +106,13 @@ min-release-age=7
 
 ## 参考資料
 
+### axios攻撃関連
 - [2026年3月31日にaxiosが受けたサプライチェーン攻撃の概要と予防策「クールダウン」機能について | yamory](https://yamory.io/blog/supplychain-attack-on-axios)
 - [Mitigating the Axios npm supply chain compromise | Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/)
 - [axios ソフトウェアサプライチェーン攻撃の概要と対応指針 - GMO Flatt Security Blog](https://blog.flatt.tech/entry/axios_compromise)
+
+### クールダウン機能関連
+- [pnpm 10.16 Adds New Setting for Delayed Dependency Updates | Socket](https://socket.dev/blog/pnpm-10-16-adds-new-setting-for-delayed-dependency-updates)
+- [Yarn 4.10 Adds a Release-Age Gate for Safer Dependency Management | Medium](https://medium.com/@roman_fedyskyi/yarn-4-10-adds-a-release-age-gate-for-safer-dependency-management-765c2d18149a)
+- [Package Managers Need to Cool Down | Andrew Nesbitt](https://nesbitt.io/2026/03/04/package-managers-need-to-cool-down.html)
+- [Supply Chain Hardening: Release Age Gating | GitHub Gist](https://gist.github.com/eapotapov/ae8c5eebf05776918f46a3f61c56cd43)
